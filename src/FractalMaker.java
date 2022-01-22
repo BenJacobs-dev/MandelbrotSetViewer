@@ -29,7 +29,7 @@ public class FractalMaker extends Application{
 	double screenCenterX = -.5, screenCenterY = 0, verticalBounds = 1.25; // horizontalBound = verticalBounds*xMulti
 	double xMulti = 1.5, multiIn = 0.00001;
 	boolean isJuliaSet = true;
-	double juliaSetX = 0.0, juliaSetY = 1;
+	double juliaSetX = -0.4215812946944, juliaSetY = 0.6018382281471999;
 	
 	///////////////////////////////////////////////
 	
@@ -91,7 +91,7 @@ public class FractalMaker extends Application{
 				calculateLines(event.getSceneX(), event.getSceneY());
 			}
 			else {
-				System.out.println(screenCenterX + " " + screenCenterY);
+				System.out.println("double juliaSetX = " + screenCenterX + ", juliaSetY = " + screenCenterY + ";");
 				rectCenterX = event.getSceneX();
 				rectCenterY = event.getSceneY();
 				rectCornerX = event.getSceneX();
