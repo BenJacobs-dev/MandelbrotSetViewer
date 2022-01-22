@@ -31,4 +31,4 @@ Controls:
  -  J: Switch between the mandelbrot set and the julia set of the current center postition (Zoom in on a black pixel in the mandelbrot set and check out its julia set).
  -  M: Change from rainbow to red and orange (makes finding black pixels easier).
  
- You can change some of the variables at the start of the UI.java file to change some settings. 
+ You can change some of the variables at the start of the UI.java file to change some inital settings like screen size. 
