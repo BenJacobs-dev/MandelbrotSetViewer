@@ -1,7 +1,12 @@
 # Mandelbrot Explorer
 
+## Main View
 ![Main View](Capture1.PNG)
+
+## Zoomed In on one of the bulbs in the top left of the main bulb
 ![Zoomed In](Capture2.PNG)
+
+## A Julia Set from a position near the spike on the right
 ![Julia Set from a position near the spike on the right](Capture3.PNG)
 
 How to Run:
