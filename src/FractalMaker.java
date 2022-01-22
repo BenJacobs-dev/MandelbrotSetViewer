@@ -28,7 +28,7 @@ public class FractalMaker extends Application{
 	int modNum = 12, screen = 1000, pixelSize = 1, blackStart = 10, fps = 1000, iterations = 100;
 	double screenCenterX = -.5, screenCenterY = 0, verticalBounds = 1.25; // horizontalBound = verticalBounds*xMulti
 	double xMulti = 1.5, multiIn = 0.00001;
-	boolean isJuliaSet = true;
+	boolean isJuliaSet = false;
 	double juliaSetX = -0.4215812946944, juliaSetY = 0.6018382281471999;
 	
 	///////////////////////////////////////////////
@@ -91,7 +91,6 @@ public class FractalMaker extends Application{
 				calculateLines(event.getSceneX(), event.getSceneY());
 			}
 			else {
-				System.out.println("double juliaSetX = " + screenCenterX + ", juliaSetY = " + screenCenterY + ";");
 				rectCenterX = event.getSceneX();
 				rectCenterY = event.getSceneY();
 				rectCornerX = event.getSceneX();
@@ -159,6 +158,10 @@ public class FractalMaker extends Application{
 					screenCenterY -= verticalBounds*2*(rectCenterY-(displaySizeY>>1))/displaySizeY;
 					verticalBounds*= 2*yDif/displaySizeY;
 					curIter = 0;
+					if(!isJuliaSet) {
+						juliaSetX = screenCenterX;
+						juliaSetY = screenCenterY;
+					}
 					initGrid();
 					updateGrid();
 				}
@@ -205,8 +208,14 @@ public class FractalMaker extends Application{
 			}
 			else {
 				if(key.getCode() == KeyCode.ESCAPE) {
-					screenCenterX = -0.5;
-					screenCenterY = 0;
+					if(isJuliaSet) {
+						screenCenterX = 0;
+						screenCenterY = 0;
+					}
+					else {
+						screenCenterX = -0.5;
+						screenCenterY = 0;
+					}
 					verticalBounds= 1.25;
 				}
 				else if(key.getCode() == KeyCode.W){
@@ -227,9 +236,20 @@ public class FractalMaker extends Application{
 				else if(key.getCode() == KeyCode.RIGHT){
 					screenCenterX += xMulti*verticalBounds*0.5;
 				}
+				else if(key.getCode() == KeyCode.J) {
+					isJuliaSet = !isJuliaSet;
+					if(isJuliaSet) {
+						screenCenterX = 0;
+						screenCenterY = 0;
+					}
+					else {
+						screenCenterX = -0.5;
+						screenCenterY = 0;
+					}
+					verticalBounds= 1.25;
+				}
 				curIter = 0;
 				initGrid();
-				updateGrid();
 				updateGrid();
 			}
 		});
