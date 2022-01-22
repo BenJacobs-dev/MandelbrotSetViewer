@@ -1,4 +1,4 @@
-#Mandelbrot Explorer
+# Mandelbrot Explorer
 
 ![Main View](Capture1.PNG)
 ![Zoomed In](Capture2.PNG)
@@ -9,7 +9,7 @@ How to Run:
 - Install [Java 8](https://www.oracle.com/java/technologies/downloads/#java8)
 - navigate to the source code folder "src" in your command line
 - run the command "javac *.java"
-- run the command "java UI"
+- run the command "java FractalViewer"
 - enjoy :D
 
 Controls:
