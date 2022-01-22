@@ -1,4 +1,4 @@
-#Mandelbrot Explorer
+# Mandelbrot Explorer
 
 ![Main View](Capture1.PNG)
 ![Zoomed In](Capture2.PNG)
