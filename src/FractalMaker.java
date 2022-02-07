@@ -2,8 +2,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.*;
 import javafx.application.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.*;
 import javafx.concurrent.*;
 import javafx.event.*;
@@ -29,7 +27,7 @@ public class FractalMaker extends Application{
 	double screenCenterX = -.5, screenCenterY = 0, verticalBounds = 1.25; // horizontalBound = verticalBounds*xMulti
 	double xMulti = 1.5, multiIn = 0.00001;
 	boolean isJuliaSet = false;
-	double juliaSetX = -0.4215812946944, juliaSetY = 0.6018382281471999;
+	double juliaSetX = 0, juliaSetY = 0;
 	
 	///////////////////////////////////////////////
 	
@@ -74,7 +72,7 @@ public class FractalMaker extends Application{
 		modNum = colorList.size()-1;
 		
 		stage = primaryStage;
-		stage.setTitle("PatternMaker");
+		stage.setTitle("Mandlebrot Set");
 		
 		Group nodeGroup = new Group();
 		nodeList = nodeGroup.getChildren();
@@ -88,7 +86,7 @@ public class FractalMaker extends Application{
 		mapRect.setFill(new ImagePattern(img));
 		mapRect.addEventFilter(MouseEvent.MOUSE_PRESSED, event -> {
 			if(event.getButton() == MouseButton.SECONDARY) {
-				calculateLines(event.getSceneX(), event.getSceneY());
+				if(!isJuliaSet)	calculateLines(event.getSceneX(), event.getSceneY());
 			}
 			else {
 				rectCenterX = event.getSceneX();
@@ -119,7 +117,7 @@ public class FractalMaker extends Application{
 		});
 		mapRect.addEventFilter(MouseEvent.MOUSE_DRAGGED, event -> {
 			if(event.getButton() == MouseButton.SECONDARY) {
-				calculateLines(event.getSceneX(), event.getSceneY());
+				if(!isJuliaSet)	calculateLines(event.getSceneX(), event.getSceneY());
 			}
 			else {
 				rectCornerX = event.getSceneX();
@@ -362,8 +360,8 @@ public class FractalMaker extends Application{
 		//				 verticalBounds*2*(rectCenterX-(displaySizeX>>1)) /displaySizeY               ;
 		//				(verticalBounds*  (i          -hSizeX		    ))/hSizeY       +screenCenterX;
 		
-		double relPosX = intoSetSpaceX(mousePosX);
-		double relPosY = intoSetSpaceY(mousePosY);
+		double relPosX = isJuliaSet ? juliaSetX : intoSetSpaceX(mousePosX);
+		double relPosY = isJuliaSet ? juliaSetY : intoSetSpaceY(mousePosY);
 		double x2 = relPosX*relPosX;
 		double y2 = relPosY*relPosY;
 		lines[0].setVisible(true);
