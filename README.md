@@ -1,7 +1,12 @@
 # Mandelbrot Explorer
 
+## Main View
 ![Main View](Capture1.PNG)
+
+## Zoomed In on one of the bulbs in the top left of the main bulb
 ![Zoomed In](Capture2.PNG)
+
+## A Julia Set from a position near the spike on the right
 ![Julia Set from a position near the spike on the right](Capture3.PNG)
 
 How to Run:
@@ -26,4 +31,4 @@ Controls:
  -  J: Switch between the mandelbrot set and the julia set of the current center postition (Zoom in on a black pixel in the mandelbrot set and check out its julia set).
  -  M: Change from rainbow to red and orange (makes finding black pixels easier).
  
- You can change some of the variables at the start of the UI.java file to change some settings. 
+ You can change some of the variables at the start of the UI.java file to change some inital settings like screen size. 
