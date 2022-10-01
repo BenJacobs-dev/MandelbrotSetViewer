@@ -23,7 +23,7 @@ public class FractalMaker extends Application{
 	//                Edit here                  //
 	///////////////////////////////////////////////
 	
-	int modNum = 12, screen = 1000, pixelSize = 1, blackStart = 10, fps = 1000, iterations = 100;
+	int modNum = 12, screen = 900, pixelSize = 1, blackStart = 10, fps = 15, iterations = 100;
 	double screenCenterX = -.5, screenCenterY = 0, verticalBounds = 1.25; // horizontalBound = verticalBounds*xMulti
 	double xMulti = 1.5, multiIn = 0.00001;
 	boolean isJuliaSet = false;
@@ -224,15 +224,31 @@ public class FractalMaker extends Application{
 				}
 				else if(key.getCode() == KeyCode.UP){
 					screenCenterY += verticalBounds*0.5;
+					if(!isJuliaSet) {
+						juliaSetX = screenCenterX;
+						juliaSetY = screenCenterY;
+					}
 				}
 				else if(key.getCode() == KeyCode.DOWN){
 					screenCenterY -= verticalBounds*0.5;
+					if(!isJuliaSet) {
+						juliaSetX = screenCenterX;
+						juliaSetY = screenCenterY;
+					}
 				}
 				else if(key.getCode() == KeyCode.LEFT){
 					screenCenterX -= xMulti*verticalBounds*0.5;
+					if(!isJuliaSet) {
+						juliaSetX = screenCenterX;
+						juliaSetY = screenCenterY;
+					}
 				}
 				else if(key.getCode() == KeyCode.RIGHT){
 					screenCenterX += xMulti*verticalBounds*0.5;
+					if(!isJuliaSet) {
+						juliaSetX = screenCenterX;
+						juliaSetY = screenCenterY;
+					}
 				}
 				else if(key.getCode() == KeyCode.J) {
 					isJuliaSet = !isJuliaSet;
