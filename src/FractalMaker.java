@@ -23,11 +23,11 @@ public class FractalMaker extends Application{
 	//                Edit here                  //
 	///////////////////////////////////////////////
 	
-	int modNum = 12, screen = 900, pixelSize = 1, blackStart = 10, fps = 15, iterations = 100;
+	int modNum = 12, screen = 1300, pixelSize = 1, blackStart = 10, fps = 15, iterations = 100;
 	double screenCenterX = -.5, screenCenterY = 0, verticalBounds = 1.25; // horizontalBound = verticalBounds*xMulti
 	double xMulti = 1.5, multiIn = 0.00001;
 	boolean isJuliaSet = false;
-	double juliaSetX = 0, juliaSetY = 0;
+	double juliaSetX = -1.2735550661179709, juliaSetY = 0.35958534729194597;
 	
 	///////////////////////////////////////////////
 	
@@ -63,7 +63,7 @@ public class FractalMaker extends Application{
 		
 		createColorList();
 		
-		lines = new Line[2000];
+		lines = new Line[20000];
 		for(int i = 0; i < lines.length; i++) {
 			lines[i] = new Line(); 
 			lines[i].setStroke(Color.WHITE);
@@ -162,6 +162,7 @@ public class FractalMaker extends Application{
 					}
 					initGrid();
 					updateGrid();
+					System.out.println("x: "+screenCenterX+" y: "+screenCenterY);
 				}
 			}
 		});
